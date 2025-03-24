@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Leilão</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Auction Notification -->
+    <div id="auctionNotification" class="auction-notification">
+        <div class="notification-header">
+            <i class="fas fa-gavel"></i>
+            <span>Leilão em Andamento</span>
+        </div>
+        <div class="notification-content">
+            <p><i class="fas fa-gift"></i> Item: <span id="notifItemName">-</span></p>
+            <p><i class="fas fa-money-bill"></i> Lance Atual:<span id="notifCurrentBid">0</span></p>
+            <p><i class="fas fa-user"></i> Maior Lance: <span id="notifHighestBidder">-</span></p>
+            <p><i class="fas fa-clock"></i> Tempo Restante: <span id="notifRemainingTime">- minutos</span></p>
+            <p><i class="fas fa-question-circle"></i> Como participar:<span id="Command">/leilao</span></p>
+            
+        </div>
+    </div>
+
+    <div class="container" id="container" > 
+        <div class="auction-box">
+            <div class="header">
+                <i class="fas fa-gavel"></i>
+                <h1>Leilão</h1>
+            </div>
+
+            <div class="content">
+                <!-- Timer Section -->
+                <div class="section timer-section" id = "timebox">
+                    <div class="section-header">
+                        <i class="fas fa-clock"></i>
+                        <h2>Tempo Restante: <span id="remainingTime">- minutos</span> </h2>
+                    </div>
+                    <!-- <p class="timer" id="remainingTime">- minutos</p> -->
+                </div>
+
+                <!-- Item Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-gift"></i>
+                        <h2>Item Atual</h2>
+                    </div>
+                    <p id="itemName">Carregando...</p>
+                </div>
+
+                <!-- Current Bid Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-money-bill"></i>
+                        <h2>Lance Atual</h2>
+                    </div>
+                    <p class="bid-amount"><span id="currentBid">0</span></p>
+                    <p class="highest-bidder" id="highestBidder"></p>
+                </div>
+
+                <!-- Status Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-clock"></i>
+                        <h2>Status</h2>
+                    </div>
+                    <p id="auctionStatus">Leilão em andamento</p>
+                </div>
+
+                <!-- Winner Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-user"></i>
+                        <h2>Arrematador</h2>
+                    </div>
+                    <p id="winnerName"> - </p>
+                  
+                </div>
+
+                <!-- Bid Form -->
+                <form id="bidForm" class="bid-form">
+                    <input type="text" id="bidInput" placeholder="Digite seu lance">
+
+                    <button type="submit">Dar Lance</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Messages -->
+    <div id="toast" class="toast"></div>
+
+
+    <div class="container2" id="container2" > 
+    <div class="auction-box2" id = "StartLeilao">
+        <div class="header">
+            <i class="fas fa-gavel"></i>
+            <h1>Leilão</h1>
+        </div>
+
+        <div class="content">
+            <!-- Timer Section -->
+          
+
+            <!-- Item Section -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-gift"></i>
+                    <h2>Item</h2>
+                </div>
+                <form id="bidFormName" class="bid-formin">
+                    <input type="text" id="itemNameLeilao" placeholder="Digite o item a ser Leiloado">
+                </form>
+              
+            </div>
+
+            <!-- Current Bid Section -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-money-bill"></i>
+                    <h2>Valor Inicial</h2>
+                </div>
+                <form id="bidFormLance" class="bid-formin">
+                    <input type="text" id="itemLanceLeilao" placeholder="Digite o valor inicial">
+                </form>
+            </div>
+
+        
+
+            <!-- Winner Section -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-user"></i>
+                    <h2>Tempo em Minutos</h2>
+                </div>
+                <form id="bidFormTime" class="bid-formin">
+                    <input type="number" id="itemTimeLeilao" placeholder="Digite o tempo em minutos">
+                </form>
+              
+            </div>
+
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-user"></i>
+                    <h2>Quem pode participar:</h2>
+                </div>
+               
+                <select id="participantes" required>
+                    <option value="">Selecione o Público</option>
+                
+                
+                </select>
+            </div>
+            
+
+           
+            <button id="btnIniciarLoc" class="tooltip" onclick="markLocationOnRegisterLeilao()">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="tooltip-text" id="tooltip">Marcar Localização</span>
+            </button>
+            
+            
+            <form id="ButtonStartleilao" class="bid-formin">
+                <button type="submit">Iniciar Leilão</button>
+            </form>
+
+            <!-- Bid Form -->
+          
+        </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
